@@ -13,6 +13,43 @@ This code is designed to run with the Python 3 interpreter.  I have removed the 
 Thank you for your evaluation!
 
 =========================================================================================
+V3 - Changes Requested from Review:
+
+REQUIRED
+
+The poi_id.py threw the following error
+***
+--SB--
+I am unable to re-create this error locally, I have tested in PyCharm and IDLE.  I worked with my UDACITY Mentor and he was unable to re-create this error, he successfully ran the code in BASH.
+
+Can you please provide more information about this error so that I may be able to re-create it locally for a fix.  Can you provide the version of python and the versions of the packages used when testing.  Can you also include the data used during the evaluation in the return files?  When I break my code with a breakpoint, every value in my dataset is a float, I do not understand where non-float values are coming from when the tester runs the code.
+
+REQUIRED
+
+It's not clear if the features were manually selected or if an automated process was used. If the features were manually tested, provide the performance achieved with several combinations. This way, we can see which gives the best results.
+
+--SB--
+This is explained on page 2 and 3 of my report, I discuss the usage of automatic feature selection (SelectKBest) and list the output scoring for the top ranked features.  The code in poi_id.py for this process starts at line 159.
+
+REQUIRED
+
+The definitions for recall isn't entirely correct. For example, the report mentions that "The recall is the opposite, showing that the algorithm can indicate that the prediction matches the label in determining that a person is not a person of interest". Here's a link that may help with defining recall in the context of the project task: https://www.quora.com/What-is-the-best-way-to-understand-the-terms-precision-and-recall
+
+--SB--
+
+Thank you for the information on this one, I better understand precision and recall and have updated the end of my report to reflect this.
+
+SUGGESTION
+
+The report thoroughly discusses the various parameters that were tuned. But there's just a minor adjustment required in this section. The report refers to these parameters as features, which isn't correct and can be misleading. I recommend revising the report for clarity purposes.
+
+--SB--
+
+I have updated this section of the report to accurately term 'parameters' instead of 'features'
+
+
+=========================================================================================
+
 V2 - Changes Requested from Review:
 
 There was an issue with running the poi_id.py file.

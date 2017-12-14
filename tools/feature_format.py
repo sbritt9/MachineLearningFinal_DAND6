@@ -77,7 +77,7 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
             except ValueError:
                 print("value:", value, " of feature:", feature,
                       " could not be casted to float.")
-                tmp_list.append(0.0)
+                return
 
         # Logic for deciding whether or not to add the data point.
         append = True
