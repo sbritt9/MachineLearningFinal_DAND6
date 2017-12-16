@@ -15,7 +15,7 @@ from feature_format import featureFormat, targetFeatureSplit
 from Custom import ScorePredictions
 from tester import dump_classifier_and_data, test_classifier
 from sklearn.naive_bayes import GaussianNB
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
@@ -79,7 +79,7 @@ my_frame = my_frame.replace('NaN',0)
 # Task 3: Create new feature(s)
 
 bps = 'Bonus_Percentage_Salary'
-pois = my_frame["poi"].data
+pois = my_frame["poi"].astype('float')
 
 my_frame[bps] = my_frame['bonus'] / my_frame['salary']
 features_list.append(bps)
@@ -89,15 +89,14 @@ my_frame = my_frame.replace([np.inf, -np.inf, np.nan], 'NaN').replace('NaN',0)
 # Implement Feature Scaling for better Estimator performance.
 
 numeric_frame = my_frame\
-    .drop("email_address", axis=1)\
-    .drop("poi", axis=1)
+    .drop("email_address", axis=1)
 
-scaler = StandardScaler()
+scaler = MinMaxScaler()
 
 X = scaler.fit_transform(numeric_frame)
 
 trained_frame = pd.DataFrame(X, columns=numeric_frame.columns)
-trained_frame["poi"] = pois
+# trained_frame["poi"] = pois.astype('float')
 
 '''
 Post-processed Project Setup

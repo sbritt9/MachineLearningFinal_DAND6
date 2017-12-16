@@ -67,17 +67,12 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
             try:
                 dictionary[key][feature]
             except KeyError:
-                print("error: key ", feature, " not present")
+                print "error: key ", feature, " not present"
                 return
             value = dictionary[key][feature]
             if value=="NaN" and remove_NaN:
                 value = 0
-            try:
-                tmp_list.append( float(value) )
-            except ValueError:
-                print("value:", value, " of feature:", feature,
-                      " could not be casted to float.")
-                return
+            tmp_list.append(float(value))
 
         # Logic for deciding whether or not to add the data point.
         append = True
